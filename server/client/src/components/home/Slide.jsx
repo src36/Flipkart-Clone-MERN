@@ -66,6 +66,7 @@ const useStyle = makeStyles((theme) => ({
     padding: "35px 15px",
   },
   timerRes: {
+    display: "flex",
     [theme.breakpoints.down("sm")]: {
       display: "none",
     },

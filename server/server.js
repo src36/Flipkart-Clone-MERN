@@ -18,12 +18,20 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 app.use("/", Routes);
 
-const PORT = 8000;
+// const PORT =  8000;
+const PORT = process.env.PORT || 8000;
 
 const username = process.env.DB_USERNAME;
 const password = process.env.DB_PASSWORD;
 
-Connection(username, password);
+const URL = `mongodb://${username}:${password}@flipkartclone-shard-00-00.zm437.mongodb.net:27017,flipkartclone-shard-00-01.zm437.mongodb.net:27017,flipkartclone-shard-00-02.zm437.mongodb.net:27017/PROJECT0?ssl=true&replicaSet=atlas-10s6k6-shard-0&authSource=admin&retryWrites=true&w=majority`;
+
+// Connection(username, password);
+Connection(process.env.MONGODB_URI || URL);
+
+if (process.env.NODE_ENV == "production") {
+  app.use(express.static("client/build"));
+}
 
 app.listen(PORT, () =>
   console.log(`Server is successfully running on ${PORT}`)

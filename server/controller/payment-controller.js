@@ -1,5 +1,5 @@
 const paytmchecksum = require("../paytm/PaytmChecksum");
-const { paytmParams, paytmMerchantkey } = require("../index");
+const { paytmParams, paytmMerchantkey } = require("../server");
 const formidable = require("formidable");
 const https = require("https");
 
