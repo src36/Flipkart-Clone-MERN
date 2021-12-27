@@ -91,7 +91,7 @@ const Slide = ({ timer, title, products }) => {
       <Box className={classes.deal}>
         <Typography className={classes.dealText}>{title}</Typography>
         {timer && (
-          <Box className={classes.timerRes}>
+          <Box className={classes.timerRes} style={{ display: "flex" }}>
             <img src={timerURL} alt="time" style={{ width: 24 }} />
             <Countdown date={Date.now() + 5.04e7} renderer={renderer} />
           </Box>
